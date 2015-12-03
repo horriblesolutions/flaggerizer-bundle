@@ -1,0 +1,4 @@
+parameters:
+    flaggerizer.url: 'http://flags.fmcdn.net/data/flags/normal/%s.png'
+    flaggerizer.opacity: 0.25
+    flaggerizer.gamma: 0.5

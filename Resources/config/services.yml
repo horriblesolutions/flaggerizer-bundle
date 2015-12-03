@@ -1,0 +1,7 @@
+services:
+    app.flaggerizer:
+        class: HorribleSolutions\FlaggerizerBundle\Service\Flaggerizer
+        arguments:
+            - %flaggerizer.url%
+            - %flaggerizer.gamma%
+            - %flaggerizer.opacity%

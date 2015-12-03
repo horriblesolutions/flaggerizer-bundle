@@ -1,0 +1,4 @@
+horrible_solutions_flaggerizer:
+    resource: "@HorribleSolutionsFlaggerizerBundle/Controller/"
+    type:     annotation
+    prefix:   /
