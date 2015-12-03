@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/flaggerize", name="flaggerize")
      * @param Request $request
      *
      * @return Response
@@ -21,7 +21,7 @@ class DefaultController extends Controller
         $imageUrl = $request->get('image');
         $flag     = $request->get('flag');
 
-        if ($imageUrl) {
+        if ($imageUrl == null) {
             return new JsonResponse(
                 ['error' => 'Missing parameters image not set.'],
                 Response::HTTP_BAD_REQUEST
