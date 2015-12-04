@@ -88,10 +88,19 @@ class DefaultController extends Controller
 
         $imageUrl = $slackResponse['user']['profile']['image_192'];
 
-        return new Response($this->generateUrl('flaggerize', [
-            'image' => $imageUrl,
-            'flag'  => $flag,
-        ], UrlGeneratorInterface::ABSOLUTE_URL));
+        $response = [
+            'text'        => 'Here is your image:',
+            'attachments' => [
+                [
+                    'image_url' => $this->generateUrl('flaggerize', [
+                        'image' => $imageUrl,
+                        'flag'  => $flag,
+                    ], UrlGeneratorInterface::ABSOLUTE_URL)
+                ]
+            ]
+        ];
+
+        return new JsonResponse($response);
     }
 
 }
