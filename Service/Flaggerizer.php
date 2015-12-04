@@ -87,13 +87,7 @@ class Flaggerizer
     {
         $flagCodeUrl = sprintf($this->flagBaseUrl, $flag);
 
-        try {
-            file_get_contents($flag);
-        } catch (\Exception $e) {
-            return false;
-        }
-
-        return true;
+        return file_get_contents($flagCodeUrl) == false ? false : true;
     }
 
 }
