@@ -78,4 +78,22 @@ class Flaggerizer
         return $image;
     }
 
+    /**
+     * @param string $flag
+     *
+     * @return bool
+     */
+    public function checkFlag($flag)
+    {
+        $flagCodeUrl = sprintf($this->flagBaseUrl, $flag);
+
+        try {
+            file_get_contents($flag);
+        } catch (\Exception $e) {
+            return false;
+        }
+
+        return true;
+    }
+
 }

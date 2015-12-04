@@ -70,6 +70,10 @@ class DefaultController extends Controller
             return new Response('Missing flag parameter not set.');
         }
 
+        if (!$this->get('app.flaggerizer')->checkFlag($flag)) {
+            return new Response(sprintf('Cannot find an image for the flag %s.', $flag));
+        }
+
         $token = $this->getParameter('horrible_solutions_flaggerizer.slack_token');
 
         $slackResponse = file_get_contents(
