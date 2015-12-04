@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class DefaultController extends Controller
 {
@@ -86,7 +87,7 @@ class DefaultController extends Controller
         return new Response($this->generateUrl('flaggerize', [
             'image' => $imageUrl,
             'flag'  => $flag,
-        ]));
+        ], UrlGeneratorInterface::ABSOLUTE_URL));
     }
 
 }
